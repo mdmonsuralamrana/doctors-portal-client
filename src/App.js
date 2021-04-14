@@ -7,6 +7,10 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import Appointment from './Components/Appointment/Appointment/Appointment';
+import { createContext } from 'react';
+import Login from './Components/Login/Login';
+
+const UserContext = createContext();
 
 function App() {
   return (
@@ -17,6 +21,9 @@ function App() {
         </Route>
         <Route path="/appointment">
           <Appointment></Appointment>
+        </Route>
+        <Route path="/login">
+          <Login></Login>
         </Route>
       </Switch>
     </Router>
