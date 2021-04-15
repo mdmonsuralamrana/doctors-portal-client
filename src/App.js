@@ -7,13 +7,16 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import Appointment from './Components/Appointment/Appointment/Appointment';
-import { createContext } from 'react';
 import Login from './Components/Login/Login';
+import { createContext, useState } from 'react';
 
-const UserContext = createContext();
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
     <Router>
       <Switch>
         <Route exact path="/">
@@ -27,6 +30,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    </UserContext.Provider>
   );
 }
 
